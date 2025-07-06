@@ -1,4 +1,8 @@
 export async function askPuter(question) {
-  const response = await puter.ai.chat(question);
-  return response;
+  try {
+    const response = await puter.ai.chat(question);
+    return response;
+  } catch (err) {
+    return "Error: " + err.message;
+  }
 }
