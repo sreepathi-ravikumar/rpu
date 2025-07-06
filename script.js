@@ -1,9 +1,8 @@
-document.getElementById("submit").addEventListener("click", () => {
+document.getElementById("submit").addEventListener("click", async () => {
   const qn = document.getElementById("question").value;
 
-  import('./route.js').then(module => {
-    module.askPuter(qn).then(res => {
-      document.getElementById("answer").innerText = res;
-    });
-  });
+  const module = await import('./route.js');
+  const res = await module.askPuter(qn);
+
+  document.getElementById("answer").innerText = res;
 });
