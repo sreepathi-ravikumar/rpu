@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import requests
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -21,5 +21,5 @@ def ask():
     reply = response.json().get("response", "No response from AI.")
     return jsonify({"answer": reply})
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
